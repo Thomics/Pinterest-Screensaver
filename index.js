@@ -47,3 +47,8 @@ function displayPins(arr) {
         //console.log('hi' + i);
     }
 }
+
+
+$('user-permission').on('click', function() {
+    console.log(document.URL);
+});
