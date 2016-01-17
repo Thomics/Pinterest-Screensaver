@@ -1,0 +1,39 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+
+html, body {
+    margin: 0;
+    padding: 0;
+
+}
+
+body {
+    background-color: #aefdff;
+    font-family: Montserrat, Helvetica, sans-serif;
+}
+
+.container {
+    background-color: hotpink;
+    height: 100vh;
+    width: 100%;
+}
+
+.img-container {
+    text-align: center;
+    /*height: 100vh;*/
+    /*max-width: 100%;*/
+    /*height: 300px;*/
+}
+
+.img-container img {
+    height: 100vh;
+}
+
+
+
+.form-container {
+    margin: 0 auto 0 auto;
+    height: 400px;
+    width: 200px;
+    padding: 3em;
+    background-color: white;
+}
