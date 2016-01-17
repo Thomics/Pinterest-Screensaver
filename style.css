@@ -9,6 +9,7 @@ html, body {
 body {
     background-color: #aefdff;
     font-family: Montserrat, Helvetica, sans-serif;
+    font-size: 10px;
 }
 
 .container {
@@ -19,9 +20,6 @@ body {
 
 .img-container {
     text-align: center;
-    /*height: 100vh;*/
-    /*max-width: 100%;*/
-    /*height: 300px;*/
 }
 
 .img-container img {
@@ -31,9 +29,13 @@ body {
 
 
 .form-container {
-    margin: 0 auto 0 auto;
-    height: 400px;
-    width: 200px;
+    margin: 10vh auto 10vh auto;
+    height: calc(80vh - 6em);
+    width: 30vw;
+    font-size: 1.4em;
     padding: 3em;
     background-color: white;
 }
+
+
+
