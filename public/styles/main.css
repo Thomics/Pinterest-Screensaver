@@ -1,0 +1,119 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+@import url(https://fonts.googleapis.com/css?family=Lobster);
+/*@import url(reset.css);*/
+
+body {
+  background-color: #E9E9E9;
+  color: #343434;
+  font-family: Montserrat, Helvetica, sans-serif;
+  font-size: 10px;
+}
+
+p {
+  font-size: 1.4em;
+}
+
+.pause, .play, .reset {
+  font-size: 5em;
+  cursor: pointer;
+  position:fixed;
+}
+
+.reset {
+  margin: 0 0 0 .5em;
+}
+
+.play, .pause {
+  margin: 0 0 0 3.8em;
+}
+
+.display-options {
+  height: 5em;
+  width: 25em;
+  background-color: rgba(0,0,0,.5);
+  color: #ffffff;
+  position: fixed;
+}
+
+.img-container {
+  max-width: 100%;
+  text-align: center;
+  display: block;
+}
+
+.form-container {
+  height: calc(80vh - 6em);
+  width: 30vw;
+  background-color: #ffffff;
+  font-size: 1.4em;
+  margin: 10vh auto 10vh auto;
+  padding: 3em;
+}
+
+.users-pins {
+  width: 100%;
+  margin: 2em 0 2em 0;
+}
+
+.actual-image {
+  max-width: 100%;
+}
+
+.user-permission {
+  width: 25%;
+  color: white;
+  font-size: 3em;
+  font-family: Lobster, cursive;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 10px;
+  position: absolute;
+  bottom: 15%;
+  left: calc(37.5% - .6em);
+  padding: .6em;
+
+  /*Button style from Pinterest Website*/
+  background-image: linear-gradient(#e3262e, #ab171e);
+  background-color: #ab171e;
+  border-bottom-color: #820a0f;
+  border-left-color: #9a1015;
+  border-right-color: #9a1015;
+  border-top-color: #af151b;
+  box-shadow: 0 1px 0 0 rgba(255,255,255,0.34);
+  text-shadow: 0 -1px rgba(0,0,0,0.11);
+}
+
+.about {
+  height: 1em;
+  width: 1em;
+  border: 2px solid green;
+  font-size: 4em;
+  line-height: 1em;
+  text-align: center;
+  border-radius: 50%;
+  margin-top: 100px;
+  display: inline-block;
+  position: absolute;
+  bottom: 25%;
+  left: 64%;
+  cursor:pointer;
+}
+
+.about-text {
+  width: 18%;
+  background-color: rgba(255, 255, 255, .5);
+  border-radius: 10px;
+  padding: 2em;
+  display: inline-block;
+  position: absolute;
+  left: 64%;
+  bottom: 25%;
+}
+
+.hide {
+  display:none;
+}
+
+.height {
+  height: 100vh;
+}
