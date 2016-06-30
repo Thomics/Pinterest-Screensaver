@@ -1,9 +1,6 @@
-@import url(https://fonts.googleapis.com/css?family=Montserrat);
-@import url(https://fonts.googleapis.com/css?family=Lobster);
-/*@import url(reset.css);*/
 
 body {
-  background-color: #E9E9E9;
+  background: url('../images/field-bg.jpg') center / cover no-repeat fixed;
   color: #343434;
   font-family: Montserrat, Helvetica, sans-serif;
   font-size: 10px;
@@ -79,7 +76,7 @@ p {
   border-left-color: #9a1015;
   border-right-color: #9a1015;
   border-top-color: #af151b;
-  box-shadow: 0 1px 0 0 rgba(255,255,255,0.34);
+  /*box-shadow: 0 1px 0 0 rgba(255,255,255,0.34);*/
   text-shadow: 0 -1px rgba(0,0,0,0.11);
 }
 
@@ -100,14 +97,11 @@ p {
 }
 
 .about-text {
-  width: 18%;
-  background-color: rgba(255, 255, 255, .5);
-  border-radius: 10px;
-  padding: 2em;
-  display: inline-block;
-  position: absolute;
-  left: 64%;
-  bottom: 25%;
+  width: 30%;
+  background-color: rgba(255, 255, 255, 1);
+  padding: 6em;
+  margin: 10% auto 0 auto;
+  border: 6px solid #7b655e;
 }
 
 .hide {

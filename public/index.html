@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8">
   <title>Pinterest Screensaver</title>
-  <link rel="stylesheet" href="pin-style.css" type="text/css">
+
+  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="styles/reset.css" type="text/css">
+  <link rel="stylesheet" href="styles/main.css" type="text/css">
 </head>
 <body>
 
@@ -13,22 +16,23 @@
   <p class="play hide">&#9658;</p>
 </div>
 
-<p class="about">?</p>
-<section class="about-text hide">
-  <p>
-    This is a program that creates a scrolling "screensaver" of your
-    Pinterest pins, in your browser.<br />
-    <br />
-    Start by linking your Pinterest account by clicking the button!<br />
-    <br />
-    If you don't have an account, use this one - username: pinterest.app.test@gmail.com
-    password: Pinterest8
-  </p>
-</section>
 
-<a class="user-permission" href="https://api.pinterest.com/oauth/?response_type=code&redirect_uri=https://thomics.github.io/pinterest-app/pin.html&client_id=4811218831118712860&scope=read_public&state=appconnected" title="Connect app to Pinterest.">
-  Connect your Pinterest
-</a>
+
+<!--<section class="about-text">-->
+  <!--<p>-->
+    <!--This is a program that creates a scrolling "screensaver" of your-->
+    <!--Pinterest pins, in your browser.<br />-->
+    <!--<br />-->
+    <!--Start by linking your Pinterest account by clicking the button!<br />-->
+    <!--<br />-->
+    <!--If you don't have an account, use this one - username: pinterest.app.test@gmail.com-->
+    <!--password: Pinterest8-->
+  <!--</p>-->
+<!--</section>-->
+
+<!--<a class="user-permission" href="https://api.pinterest.com/oauth/?response_type=code&redirect_uri=https://thomics.github.io/pinterest-app/pin.html&client_id=4811218831118712860&scope=read_public&state=appconnected" title="Connect app to Pinterest.">-->
+  <!--Connect your Pinterest-->
+<!--</a>-->
 
 <section class="form-container hide">
   <form class="hide" action="javascript:getPins();">
@@ -43,8 +47,11 @@
   <div class="img-container"> </div>
 </section>
 
+
 <script src="vendor/jquery.js"></script>
 <script src="vendor/angular.js"></script>
+<script src="vendor/angular-route.min.js"></script>
 <script src="../app/app.js"></script>
+
 </body>
 </html>
