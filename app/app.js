@@ -8,10 +8,8 @@ app.config(["$routeProvider", function( $routeProvider ) {
 
   $routeProvider
       .when('/', {
-        templateUrl: '../public/templates/sign-on.html',
+        templateUrl: '../public/templates/sign-on.html'
       });
 
 }]);
-
-
 
