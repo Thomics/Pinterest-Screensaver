@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Pinterest Screensaver</title>
 
+  <title>Pinterest Screensaver</title>
   <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="styles/reset.css" type="text/css">
   <link rel="stylesheet" href="styles/main.css" type="text/css">
+
 </head>
-<body>
+<body ng-app="Pinterest">
 
 <div class="display-options hide">
   <p class="reset hide">Reset</p>
@@ -16,7 +17,7 @@
   <p class="play hide">&#9658;</p>
 </div>
 
-
+<div ng-view></div>
 
 <!--<section class="about-text">-->
   <!--<p>-->
