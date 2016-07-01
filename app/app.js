@@ -10,9 +10,9 @@ app.config(["$routeProvider", '$locationProvider', function( $routeProvider, $lo
       .when('/', {
         templateUrl: 'public/templates/sign-on.html'
       })
-      //.when('/select-screen/?state=:connected&code=:code', {
-      //  templateUrl: 'public/templates/select-screen.html'
-      //})
+      .when('/?state=:connected&code=:code', {
+        templateUrl: 'public/templates/select-screen.html'
+      })
       .when('/select-screen', {
         templateUrl: 'public/templates/select-screen.html'
       })
