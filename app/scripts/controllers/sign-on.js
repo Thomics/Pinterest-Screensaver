@@ -1,7 +1,9 @@
 'use strict';
 
 angular.module('Pinterest')
-  .controller('mainCtrl', ["$scope", function($scope){
+  .controller('signOnCtrl', ["$scope", 'signOnService', function($scope, signOnService){
+
+    signOnService.checkAuthorization();
 
 
 
