@@ -14,7 +14,7 @@ angular.module('Pinterest')
 
     this.getToken = function(token) {
 
-      $http.post('https://api.pinterest.com/v1/oauth/token?grant_type=authorization_code&client_id=4811218831118712860&client_secret=151c65575b58e9783627c80743eee6dba0bab7fd967ab4533c2cc3d87b2d5b49&code=' + token)
+      $http.post('https://api.pinterest.com/v1/oauth/token?grant_type=authorization_code&client_id=4843083155244066954&client_secret=c3070903c5fbe1daa699846708c06d0f4f5713351b97d2a5f357b9bc3e541a16&code=' + token)
         .then(function(data) {
           console.log(data);
           console.log(data.access_token);
