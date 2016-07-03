@@ -20,5 +20,4 @@ app.config(["$routeProvider", '$locationProvider', function( $routeProvider, $lo
         templateUrl: 'public/templates/display-board.html'
       });
 
-
 }]);

@@ -6,7 +6,12 @@ angular.module('Pinterest')
     this.checkAuthorization = function( ) {
       console.log($routeParams);
       var params = $routeParams;
-      console.log(params);
+
+      if ( $routeParams.state = 'appconnected' ) {
+        console.log($routeParams.code);
+        return $routeParams.code;
+      }
+
     };
 
 
