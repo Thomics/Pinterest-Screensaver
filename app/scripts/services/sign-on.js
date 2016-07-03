@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('Pinterest')
-  .service('signOnService', ['$http', '$routeParams', function( $http, $routeParams ) {
+  .service('signOnService', ['$scope', '$http', '$routeParams', function( $scope, $http, $routeParams ) {
 
     var vm = this;
 
@@ -35,6 +35,8 @@ angular.module('Pinterest')
         .then(function( data ) {
           console.log(data);
           console.log(data.data);
+
+          $scope.boards = data.data;
 
           return data.data;
 
