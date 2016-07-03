@@ -4,8 +4,6 @@ angular.module('Pinterest')
   .service('signOnService', ['$http', '$routeParams', function( $http, $routeParams ) {
 
     this.checkAuthorization = function( ) {
-      console.log($routeParams);
-      var params = $routeParams;
 
       if ( $routeParams.state = 'appconnected' ) {
         console.log($routeParams.code);
@@ -14,6 +12,14 @@ angular.module('Pinterest')
 
     };
 
+    this.getBoards = function(token) {
+
+      $http.get('https://api.pinterest.com/v1/me/boards/?access_token=' + token + '&fields=id%2Curl%2Cname')
+        .then(function(data) {
+          console.log(data);
+        });
+
+    };
 
 
 

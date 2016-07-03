@@ -3,8 +3,12 @@
 angular.module('Pinterest')
   .controller('signOnCtrl', ["$scope", 'signOnService', function($scope, signOnService){
 
-    signOnService.checkAuthorization();
+    $scope.code = signOnService.checkAuthorization();
 
+
+    if ($scope.code) {
+      signOnService.getBoards($scope.code);
+    }
 
 
   }]);
