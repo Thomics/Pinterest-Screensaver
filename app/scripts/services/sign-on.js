@@ -3,7 +3,9 @@
 angular.module('Pinterest')
   .service('signOnService', ['$http', '$routeParams', function( $http, $routeParams ) {
 
-    this.checkAuthorization = function( ) {
+    var vm = this;
+
+    vm.checkAuthorization = function( ) {
 
       if ( $routeParams.state = 'appconnected' ) {
         console.log($routeParams.code);
@@ -12,20 +14,20 @@ angular.module('Pinterest')
 
     };
 
-    this.getToken = function(token) {
+    vm.getToken = function(token) {
 
       $http.post('https://api.pinterest.com/v1/oauth/token?grant_type=authorization_code&client_id=4843083155244066954&client_secret=c3070903c5fbe1daa699846708c06d0f4f5713351b97d2a5f357b9bc3e541a16&code=' + token)
         .then(function(data) {
           console.log(data);
           console.log(data.data.access_token);
           console.log(data.access_token);
-          getBoard(data.data.access_token);
+          vm.getBoard(data.data.access_token);
         });
 
     };
 
 
-    this.getBoard = function( token ) {
+    vm.getBoard = function( token ) {
 
       console.log(token);
 
