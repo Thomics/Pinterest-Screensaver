@@ -7,7 +7,7 @@ angular.module('Pinterest')
 
 
     if ($scope.code) {
-      signOnService.getBoards($scope.code);
+      signOnService.getToken($scope.code);
     }
 
 
