@@ -34,10 +34,20 @@ angular.module('Pinterest')
       $http.get('https://api.pinterest.com/v1/me/boards/?access_token=' + token + '&fields=id%2Curl%2Cname')
         .then(function( data ) {
           console.log(data);
+          console.log(data.data);
+
+          return data.data;
+
         });
 
     };
 
+
+    vm.getPins = function ( data ) {
+
+
+
+    }
 
 
 
