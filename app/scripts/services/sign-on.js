@@ -19,7 +19,7 @@ angular.module('Pinterest')
           console.log(data);
           console.log(data.data.access_token);
           console.log(data.access_token);
-          getBoard(data.access_token);
+          getBoard(data.data.access_token);
         });
 
     };
