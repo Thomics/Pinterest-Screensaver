@@ -27,6 +27,8 @@ angular.module('Pinterest')
 
     this.getBoard = function( token ) {
 
+      console.log(token);
+
       $http.get('https://api.pinterest.com/v1/me/boards/?access_token=' + token + '&fields=id%2Curl%2Cname')
         .then(function( data ) {
           console.log(data);
