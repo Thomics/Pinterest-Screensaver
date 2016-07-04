@@ -1,11 +1,15 @@
 'use strict';
 
 angular.module('Pinterest')
-  .service('signOnService', ['$scope', '$http', '$routeParams', function( $scope, $http, $routeParams ) {
+  .service('signOnService', ['$http', '$routeParams', function( $http, $routeParams ) {
 
     var vm = this;
 
+    console.log('service');
+
     vm.checkAuthorization = function( ) {
+
+      console.log('heerere');
 
       if ( $routeParams.state = 'appconnected' ) {
         console.log($routeParams.code);
@@ -36,7 +40,9 @@ angular.module('Pinterest')
           console.log(data);
           console.log(data.data);
 
-          $scope.boards = data.data;
+          //$scope.boards = data.data;
+
+          //console.log($scope.boards + 'boards');
 
           return data.data;
 
