@@ -7,6 +7,8 @@ angular.module('Pinterest')
 
 
     if ($scope.code) {
+      console.log($scope.code + " This is scope code");
+
       $scope.boards  = signOnService.getToken($scope.code);
     }
 
