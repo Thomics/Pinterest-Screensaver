@@ -1,11 +1,15 @@
 <h1>This is the Title</h1>
-<section class="form-container"  ng-controller="signOnCtrl">
-  {{boards}}
+<section class="form-container"  ng-controller="signOnCtrl as sign">
+  <!--{{sign.boards}}-->
+  <!--{{sign.bbb}}-->
 
-  <form action="javascript:getPins();">
-    Select time per image <input type="text" id="seconds" value="30">
-    <select class="users-pins">
+  <!--<form action="javascript:getPins();">-->
+  <form ng-submit="getPins()">
+    Select time per image <input type="text" id="seconds" value="30" >
+    <select class="users-pins"  ng-model="board[0].name" ng-options="board.name as board.name for board in boardOptions">
     </select><br />
     <input class="user-submit" type="submit" value="Submit">
   </form>
+      <h1>{{board[0].name}}</h1>
 </section>
+
