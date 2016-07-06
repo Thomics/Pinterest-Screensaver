@@ -27,8 +27,8 @@
       <file leaf-file-name="sign-on.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/scripts/controllers/sign-on.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.75524473">
-              <caret line="26" column="44" selection-start-line="26" selection-start-column="44" selection-end-line="26" selection-end-column="44" />
+            <state vertical-scroll-proportion="0.54545456">
+              <caret line="22" column="46" selection-start-line="22" selection-start-column="46" selection-end-line="22" selection-end-column="46" />
               <folding />
             </state>
           </provider>
@@ -523,8 +523,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/scripts/controllers/sign-on.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.75524473">
-          <caret line="26" column="44" selection-start-line="26" selection-start-column="44" selection-end-line="26" selection-end-column="44" />
+        <state vertical-scroll-proportion="0.54545456">
+          <caret line="22" column="46" selection-start-line="22" selection-start-column="46" selection-end-line="22" selection-end-column="46" />
           <folding />
         </state>
       </provider>
