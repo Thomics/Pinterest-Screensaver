@@ -33,13 +33,16 @@ angular.module('Pinterest')
 
     }
 
+    $scope.getPins = function() {
 
-    signOnService.getPins( $scope.board, $scope.code ).then( function( response ) {
+      signOnService.getPins($scope.board, $scope.code).then(function (response) {
 
-      console.log(response);
+        console.log(response);
 
-      $scope.pins = response;
-      console.log($scope.pins);
-    });
+        $scope.pins = response;
+        console.log($scope.pins);
+      });
+
+    }
 
   }]);
