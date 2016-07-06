@@ -9,6 +9,7 @@ angular.module('Pinterest')
     if ( $scope.code ) {
 
       $scope.accessToken  = signOnService.getToken( $scope.code );
+      console.log($scope.accessToken);
 
     }
 
