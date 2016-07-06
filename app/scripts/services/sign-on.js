@@ -24,13 +24,6 @@ angular.module('Pinterest')
     vm.getBoard = function( token ) {
 
       return $http.get('https://api.pinterest.com/v1/me/boards/?access_token=' + token + '&fields=id%2Curl%2Cname');
-        //.then(function( data ) {
-        //  console.log(data);
-        //  console.log(data.data);
-        //
-        //  return data.data;
-        //
-        //});
 
     };
 
@@ -39,18 +32,9 @@ angular.module('Pinterest')
 
       console.log('well howdy');
 
-      $http.get('https://api.pinterest.com/v1/boards/' + board + '/pins/?access_token=' + token + '&fields=url%2Cimage')
-        .then(function(data) {
-          console.log(data);
-          console.log(data.data);
-        });
+      return $http.get('https://api.pinterest.com/v1/boards/' + board + '/pins/?access_token=' + token + '&fields=url%2Cimage');
 
     };
-
-
-
-
-
 
 
   }]);
