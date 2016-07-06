@@ -4,7 +4,6 @@ var app = angular.module('Pinterest', ['ngRoute']);
 
 
 app.config(["$routeProvider", '$locationProvider', function( $routeProvider, $locationProvider ) {
-  console.log('here');
 
   $routeProvider
       .when('/', {
