@@ -10,7 +10,11 @@ angular.module('Pinterest')
 
       $scope.boardOptions  = signOnService.getToken( $scope.code );
 
+      console.log('$scope.boardOptions');
       console.log($scope.boardOptions);
+
+      console.log('$scope.boardOptions.data');
+      console.log($scope.boardOptions.data);
 
       //$scope.board = [$scope.boardOptions[0]];
 
