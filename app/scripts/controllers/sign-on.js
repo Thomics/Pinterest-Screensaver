@@ -5,6 +5,10 @@ angular.module('Pinterest')
 
     $scope.code = signOnService.checkAuthorization();
 
+    $scope.selectedBoard = '';
+
+
+
 
     if ( $scope.code ) {
 
@@ -25,7 +29,6 @@ angular.module('Pinterest')
           console.log('$scope.boardOptions');
           console.log($scope.boardOptions);
 
-          $scope.board = [{name: 'Comics'}];
 
         })
 
@@ -35,7 +38,7 @@ angular.module('Pinterest')
 
     $scope.getPins = function() {
 
-      signOnService.getPins($scope.board.name, $scope.accessToken).then(function (response) {
+      signOnService.getPins($scope.selectedBoard, $scope.accessToken).then(function (response) {
 
         console.log(response);
 

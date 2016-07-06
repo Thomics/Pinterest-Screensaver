@@ -1,10 +1,10 @@
 <section class="form-container"  ng-controller="signOnCtrl as sign">
   <form ng-submit="getPins()">
     Select time per image <input type="text" id="seconds" value="30" >
-    <select class="users-pins"  ng-model="board[0].name" ng-options="board.name as board.name for board in boardOptions">
+    <select class="users-pins"  ng-model="selectedBoard" ng-options="board.name as board.name for board in boardOptions">
     </select><br />
     <input class="user-submit" type="submit" value="Submit">
   </form>
-      <h1>{{board[0].name}}</h1>
+      {{selectedBoard}}
 </section>
 
