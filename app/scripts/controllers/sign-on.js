@@ -8,7 +8,7 @@ angular.module('Pinterest')
 
     if ( $scope.code ) {
 
-      $scope.boardOptions  = signOnService.getToken( $scope.code );
+      $scope.accessToken  = signOnService.getToken( $scope.code );
 
       console.log('$scope.boardOptions');
       console.log($scope.boardOptions);
@@ -16,12 +16,14 @@ angular.module('Pinterest')
       console.log('$scope.boardOptions.data');
       console.log($scope.boardOptions.data);
 
-      //$scope.board = [$scope.boardOptions[0]];
+    }
 
+    if ( $scope.accessToken ) {
+      $scope.boardOptions = signOnService.getBoard($scope.accessToken);
+      $scope.board = [{name: 'comics'}];
     }
 
     //$scope.boardOptions = [{name : 'comics'}, {name : 'thomics'}];
-    //$scope.board = [{name: 'comics'}];
 
 
     $scope.getPins = function( ) {
