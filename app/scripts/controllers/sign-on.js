@@ -10,16 +10,18 @@ angular.module('Pinterest')
 
       $scope.accessToken  = signOnService.getToken( $scope.code );
 
+    }
+
+    if ( $scope.accessToken ) {
+      $scope.boardOptions = signOnService.getBoard($scope.accessToken);
+
       console.log('$scope.boardOptions');
       console.log($scope.boardOptions);
 
       console.log('$scope.boardOptions.data');
       console.log($scope.boardOptions.data);
 
-    }
 
-    if ( $scope.accessToken ) {
-      $scope.boardOptions = signOnService.getBoard($scope.accessToken);
       $scope.board = [{name: 'comics'}];
     }
 
