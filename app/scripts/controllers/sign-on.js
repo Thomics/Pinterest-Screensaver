@@ -11,23 +11,29 @@ angular.module('Pinterest')
       signOnService.getToken( $scope.code ).then( function( response ) {
 
         console.log(response.data);
-        console.log(response.data.accessToken);
-        $scope.accessToken = response.data.accessToken;
+        console.log(response.data.access_token);
+        $scope.accessToken = response.data.access_token;
+
       });
 
     }
 
     if ( $scope.accessToken ) {
-      $scope.boardOptions = signOnService.getBoard($scope.accessToken);
 
-      console.log('$scope.boardOptions');
-      console.log($scope.boardOptions);
+      signOnService.getBoard( $scope.accessToken).then( function( response ) {
+        $scope.boardOptions = response.data;
 
-      console.log('$scope.boardOptions.data');
-      console.log($scope.boardOptions.data);
+        console.log('$scope.boardOptions');
+        console.log($scope.boardOptions);
+
+        //console.log('$scope.boardOptions.data');
+        //console.log($scope.boardOptions.data);
+
+        $scope.board = [{name: 'comics'}];
+
+      });
 
 
-      $scope.board = [{name: 'comics'}];
     }
 
     //$scope.boardOptions = [{name : 'comics'}, {name : 'thomics'}];
