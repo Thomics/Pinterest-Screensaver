@@ -35,7 +35,7 @@ angular.module('Pinterest')
 
     $scope.getPins = function() {
 
-      signOnService.getPins($scope.board, $scope.code).then(function (response) {
+      signOnService.getPins($scope.board.name, $scope.accessToken).then(function (response) {
 
         console.log(response);
 
