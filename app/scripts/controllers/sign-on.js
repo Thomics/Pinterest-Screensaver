@@ -14,27 +14,40 @@ angular.module('Pinterest')
         console.log(response.data.access_token);
         $scope.accessToken = response.data.access_token;
 
-      });
+      }).then(
+        signOnService.getBoard( $scope.accessToken).then( function( response ) {
+          $scope.boardOptions = response.data;
+
+          console.log('$scope.boardOptions');
+          console.log($scope.boardOptions);
+
+          //console.log('$scope.boardOptions.data');
+          //console.log($scope.boardOptions.data);
+
+          $scope.board = [{name: 'comics'}];
+
+        })
+      );
 
     }
-
-    if ( $scope.accessToken ) {
-
-      signOnService.getBoard( $scope.accessToken).then( function( response ) {
-        $scope.boardOptions = response.data;
-
-        console.log('$scope.boardOptions');
-        console.log($scope.boardOptions);
-
-        //console.log('$scope.boardOptions.data');
-        //console.log($scope.boardOptions.data);
-
-        $scope.board = [{name: 'comics'}];
-
-      });
-
-
-    }
+    //
+    //if ( $scope.accessToken ) {
+    //
+    //  signOnService.getBoard( $scope.accessToken).then( function( response ) {
+    //    $scope.boardOptions = response.data;
+    //
+    //    console.log('$scope.boardOptions');
+    //    console.log($scope.boardOptions);
+    //
+    //    //console.log('$scope.boardOptions.data');
+    //    //console.log($scope.boardOptions.data);
+    //
+    //    $scope.board = [{name: 'comics'}];
+    //
+    //  });
+    //
+    //
+    //}
 
     //$scope.boardOptions = [{name : 'comics'}, {name : 'thomics'}];
 
