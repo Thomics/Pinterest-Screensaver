@@ -20,7 +20,7 @@ angular.module('Pinterest')
           signOnService.getBoard( $scope.accessToken ).then( function( response ) {
 
 
-          $scope.boardOptions = response.data;
+          $scope.boardOptions = response.data.data;
 
           console.log('$scope.boardOptions');
           console.log($scope.boardOptions);
