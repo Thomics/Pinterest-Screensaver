@@ -38,7 +38,7 @@ angular.module('Pinterest')
 
     vm.displayPins = function( pins ) {
 
-      console.log(pins);
+      console.log(pins.data);
 
     };
 

@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('Pinterest')
-  .controller('signOnCtrl', ['signOnService', "$scope", function( signOnService, $scope){
+  .controller('signOnCtrl', ['signOnService', "$scope", '$location', function( signOnService, $scope, $location){
 
     $scope.code = signOnService.checkAuthorization();
 
@@ -41,18 +41,17 @@ angular.module('Pinterest')
       console.log($scope.selectedBoard);
       signOnService.getPins($scope.selectedBoard, $scope.accessToken).then(function (response) {
 
-        console.log(response);
+        signOnService.displayPins(response.data);
 
-        $scope.pins = response;
-        console.log($scope.pins);
-      }).then(function( data ) {
+        $scope.pins = response.data;
 
-        console.log(data);
-
-        signOnService.displayPins(data.data);
+        $location.url('/display-board')
 
       });
 
     }
+
+
+
 
   }]);
