@@ -47,6 +47,8 @@ angular.module('Pinterest')
         console.log($scope.pins);
       }).then(function( data ) {
 
+        console.log(data);
+
         signOnService.displayPins(data.data);
 
       });
