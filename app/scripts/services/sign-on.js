@@ -36,11 +36,15 @@ angular.module('Pinterest')
 
     };
 
-    vm.displayPins = function( pins ) {
+    //vm.storePins = function( boardPins ) {
+    //
+    //  console.log(boardPins);
+    //
+    //  var pins = boardPins;
+    //
+    //};
 
-      console.log(pins.data);
-
-    };
+    vm.pins = [];
 
 
   }]);
