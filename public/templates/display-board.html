@@ -1,15 +1,17 @@
 <section ng-controller="displayBoardCtrl">
 
+  <!--<div class="display-options">-->
+    <!--<p class="reset">Reset</p>-->
+    <!--<p class="pause hide">II</p>-->
+    <!--<p class="play">&#9658;</p>-->
+  <!--</div>-->
 
-
-  <div class="display-options">
-    <p class="reset">Reset</p>
-    <p class="pause hide">II</p>
-    <p class="play">&#9658;</p>
-  </div>
+  Counter: <input type="text" ng-model="counter">
 
   <section class="board-container">
-    <div class="img-container"></div>
+    <div class="img-container" ng-repeat="photo in pins"><img ng-src="{{photo.image.original.url}}" /></div>
+
   </section>
+
 
 </section>

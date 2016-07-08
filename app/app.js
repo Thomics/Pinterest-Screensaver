@@ -1,6 +1,6 @@
 'use strict';
 
-var app = angular.module('Pinterest', ['ngRoute']);
+var app = angular.module('pinterest', ['ngRoute']);
 
 
 app.config(["$routeProvider", '$locationProvider', function( $routeProvider, $locationProvider ) {

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('Pinterest')
+angular.module('pinterest')
   .service('signOnService', ['$http', '$routeParams', function( $http, $routeParams ) {
 
     var vm = this;

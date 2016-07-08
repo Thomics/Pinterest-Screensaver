@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('Pinterest')
+angular.module('pinterest')
   .controller('signOnCtrl', ['signOnService', "$scope", '$location',
     function( signOnService, $scope, $location){
 
@@ -49,7 +49,7 @@ angular.module('Pinterest')
 
         //displayBoardService.storePins(response.data);
 
-        signOnService.pins = response.data;
+        signOnService.pins = response.data.data;
 
         console.log(signOnService.pins);
 
