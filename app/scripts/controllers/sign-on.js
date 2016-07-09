@@ -8,7 +8,7 @@ angular.module('pinterest')
 
     $scope.selectedBoard = '';
 
-    $scope.ball = 'baalloo';
+    $scope.seconds = 20;
 
 
 
@@ -50,6 +50,8 @@ angular.module('pinterest')
         //displayBoardService.storePins(response.data);
 
         signOnService.pins = response.data.data;
+
+        signOnService.seconds = $scope.seconds;
 
         console.log(signOnService.pins);
 

@@ -5,6 +5,10 @@ angular.module('pinterest')
 
     var vm = this;
 
+    vm.pins = [];
+    vm.seconds = undefined;
+
+
     vm.checkAuthorization = function( ) {
 
       if ( $routeParams.state = 'appconnected' ) {
@@ -36,15 +40,6 @@ angular.module('pinterest')
 
     };
 
-    //vm.storePins = function( boardPins ) {
-    //
-    //  console.log(boardPins);
-    //
-    //  var pins = boardPins;
-    //
-    //};
-
-    vm.pins = [];
 
 
   }]);
