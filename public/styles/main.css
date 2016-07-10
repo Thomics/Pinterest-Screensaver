@@ -36,6 +36,8 @@ p {
   max-width: 100%;
   text-align: center;
   display: block;
+  height: 100vh;
+  background: #f1f5f6;
 }
 
 .form-container {

@@ -44,70 +44,70 @@ $(function() {
 });
 
 
-//If the user has authorized their account we get and return
-//the authorization code otherwise returns undefined.
-function checkAuthCode() {
-  //Retrieves the current url.
-  var docURL = document.URL;
-  var arr = docURL.split('code=');
-  if ( arr.length > 1) {
-    $('.user-permission, .about-text, .about').addClass('hide');
-    $('form').removeClass('hide');
-    getAccessToken(arr[1]);//Passes the authorization code
-  }
-}
+          //If the user has authorized their account we get and return
+          //the authorization code otherwise returns undefined.
+          function checkAuthCode() {
+            //Retrieves the current url.
+            var docURL = document.URL;
+            var arr = docURL.split('code=');
+            if ( arr.length > 1) {
+              $('.user-permission, .about-text, .about').addClass('hide');
+              $('form').removeClass('hide');
+              getAccessToken(arr[1]);//Passes the authorization code
+            }
+          }
 
-//Trades a users 'code' for an access token.
-function getAccessToken(code) {
-  $.ajax({
-    type: 'POST',
-    url: 'https://api.pinterest.com/v1/oauth/token?grant_type=authorization_code&client_id=4811218831118712860&client_secret=151c65575b58e9783627c80743eee6dba0bab7fd967ab4533c2cc3d87b2d5b49&code=' + code,
-    success: function (data) {
-      token = data.access_token;
-      //Waits for user input after getting boards.
-      getBoards();
-    }
-  });
-}
+          //Trades a users 'code' for an access token.
+          function getAccessToken(code) {
+            $.ajax({
+              type: 'POST',
+              url: 'https://api.pinterest.com/v1/oauth/token?grant_type=authorization_code&client_id=4811218831118712860&client_secret=151c65575b58e9783627c80743eee6dba0bab7fd967ab4533c2cc3d87b2d5b49&code=' + code,
+              success: function (data) {
+                token = data.access_token;
+                //Waits for user input after getting boards.
+                getBoards();
+              }
+            });
+          }
 
-//Retrieves the users boards, and populates them in an html form list.
-//Stores users boards in variable - userBoards
-//******************Add error catching for bad token.*****************
-function getBoards() {
-  $('.users-pins').empty();//Clears the list so that it doesn't re-add.
-  $('.form-container').removeClass('hide');
-  $('.reset, .pause, .display-options, .container').addClass('hide');
+          //Retrieves the users boards, and populates them in an html form list.
+          //Stores users boards in variable - userBoards
+          //******************Add error catching for bad token.*****************
+          function getBoards() {
+            $('.users-pins').empty();//Clears the list so that it doesn't re-add.
+            $('.form-container').removeClass('hide');
+            $('.reset, .pause, .display-options, .container').addClass('hide');
 
-  $.ajax({
-    type: 'GET',
-    url: 'https://api.pinterest.com/v1/me/boards/?access_token=' + token + '&fields=id%2Curl%2Cname',
-    success: function(info) {
-      userBoards = info.data;
-      for (var i = 0; i < userBoards.length; i++) {
-        $('.users-pins').append("<option value='" + userBoards[i].id + "'>" +
-          userBoards[i].name + "</option>");
-      }
-    }
-  });
-}
+            $.ajax({
+              type: 'GET',
+              url: 'https://api.pinterest.com/v1/me/boards/?access_token=' + token + '&fields=id%2Curl%2Cname',
+              success: function(info) {
+                userBoards = info.data;
+                for (var i = 0; i < userBoards.length; i++) {
+                  $('.users-pins').append("<option value='" + userBoards[i].id + "'>" +
+                    userBoards[i].name + "</option>");
+                }
+              }
+            });
+          }
 
-//When the user selects a board and clicks the submit button, getPins executes.
-//retrieves the pins from the selected board.
-function getPins() {
-  $('.form-container').addClass('hide');
-  $('.container, .reset, .pause, .display-options').removeClass('hide');
+          //When the user selects a board and clicks the submit button, getPins executes.
+          //retrieves the pins from the selected board.
+          function getPins() {
+            $('.form-container').addClass('hide');
+            $('.container, .reset, .pause, .display-options').removeClass('hide');
 
-  currentBoard = $('.users-pins option:selected').val();//Retrieves the selected boards name.
-  seconds = $('#seconds').val();//returns the number of seconds.
+            currentBoard = $('.users-pins option:selected').val();//Retrieves the selected boards name.
+            seconds = $('#seconds').val();//returns the number of seconds.
 
-  $.ajax({
-    type: 'GET',
-    url: 'https://api.pinterest.com/v1/boards/' + currentBoard + '/pins/?access_token=' + token + '&fields=url%2Cimage',
-    success: function(data) {
-      displayPins(data.data);
-    }
-  });
-}
+            $.ajax({
+              type: 'GET',
+              url: 'https://api.pinterest.com/v1/boards/' + currentBoard + '/pins/?access_token=' + token + '&fields=url%2Cimage',
+              success: function(data) {
+                displayPins(data.data);
+              }
+            });
+          }
 
 //Displays the pins from the selected board.
 //@params arr an array containing images and relevant information.

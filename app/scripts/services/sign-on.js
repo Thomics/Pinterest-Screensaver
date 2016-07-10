@@ -6,7 +6,7 @@ angular.module('pinterest')
     var vm = this;
 
     vm.pins = [];
-    vm.seconds = 10;
+    vm.seconds = 20;
 
 
     vm.checkAuthorization = function( ) {

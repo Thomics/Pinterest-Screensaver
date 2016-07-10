@@ -10,8 +10,6 @@ angular.module('pinterest')
 
       $scope.seconds = 20;
 
-
-
       if ( $scope.code ) {
 
         signOnService.getToken( $scope.code ).then( function( response ) {
@@ -43,12 +41,6 @@ angular.module('pinterest')
         console.log($scope.selectedBoard);
         signOnService.getPins($scope.selectedBoard, $scope.accessToken).then(function (response) {
 
-          //signOnService.storePins(response.data);
-
-          //$scope.pins = response.data;
-
-          //displayBoardService.storePins(response.data);
-
           signOnService.pins = response.data.data;
 
           signOnService.seconds = $scope.seconds;
@@ -60,8 +52,5 @@ angular.module('pinterest')
         });
 
       }
-
-
-
 
     }]);
