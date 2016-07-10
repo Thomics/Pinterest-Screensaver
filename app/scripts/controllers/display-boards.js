@@ -13,6 +13,9 @@ angular.module('pinterest')
         $scope.counter += 1;
       };
 
-      $interval($scope.incrementCounter, signOnService.seconds, $scope.pins.length);
+      console.log(signOnService.seconds);
+      console.log($scope.seconds);
+
+      $interval($scope.incrementCounter, (signOnService.seconds * 1000), $scope.pins.length);
 
   }]);
