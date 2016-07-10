@@ -1,5 +1,6 @@
-<section ng-controller="displayBoardCtrl" >
+<section ng-controller="displayBoardCtrl">
   {{windowScroll()}}
+
   <style>
     body {
       background: #f1f5f6;
@@ -8,8 +9,9 @@
 
   <div class="display-options">
     <p class="reset">Reset</p>
-    <p class="pause hide">II</p>
-    <p class="play">&#9658;</p>
+    <p class="pause" ng-click="stop()" ng-show="paused === false">II</p>
+    <p class="play" ng-click="start()" ng-show="paused === true">&#9658;</p>
+    {{paused}}
   </div>
 
   <section class="board-container" ng-style="{height: pins[counter].image.original.height}">
