@@ -12,7 +12,6 @@ angular.module('pinterest')
     vm.checkAuthorization = function( ) {
 
       if ( $routeParams.state = 'appconnected' ) {
-        console.log($routeParams.code + 'route param code');
         return $routeParams.code;
       }
 
@@ -33,8 +32,6 @@ angular.module('pinterest')
 
 
     vm.getPins = function ( board, token ) {
-
-      console.log('well howdy');
 
       return $http.get('https://api.pinterest.com/v1/boards/' + board + '/pins/?access_token=' + token + '&fields=url%2Cimage');
 
