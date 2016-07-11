@@ -7,26 +7,29 @@ angular.module('pinterest')
       $scope.code = signOnService.checkAuthorization();
 
       $scope.selectedBoard = '';
-      $scope.seconds = 20;
+      $scope.seconds = 10;
+      $scope.accessToken = signOnService.accessToken;
+      //$scope.boardOptions;
 
-      console.log(signOnService.code);
 
 
-      if ( $scope.code || signOnService.code ) {
+      $scope.getToken = function( ) {
 
         signOnService.getToken( $scope.code )
           .then( function( response ) {
-
             $scope.accessToken = response.data.access_token;
+            $scope.getBoard();
+          });
 
-            signOnService.getBoard( $scope.accessToken )
-              .then( function( response ) {
+      };
 
-                $scope.boardOptions = response.data.data;
-
-            })
+      $scope.getBoard = function ( ) {
+        signOnService.getBoard( $scope.accessToken )
+          .then( function( response ) {
+            $scope.boardOptions = response.data.data;
         });
-      }
+      };
+
 
       $scope.getPins = function() {
 
@@ -39,10 +42,21 @@ angular.module('pinterest')
 
         });
 
-      }
+      };
 
       $scope.$on('$routeChangeSuccess', function() {
-        console.log('route success');
+
+        console.log('access t ' + $scope.accessToken );
+
+        if ( $scope.accessToken ) {
+
+          $scope.getBoard();
+
+        } else {
+          $scope.getToken();
+        }
+
+
       });
 
 

@@ -8,6 +8,7 @@ angular.module('pinterest')
     vm.pins = [];
     vm.seconds = 20;
     vm.code = '';
+    vm.accessToken;
 
     vm.checkAuthorization = function( ) {
 
@@ -27,6 +28,7 @@ angular.module('pinterest')
 
     vm.getBoard = function( token ) {
 
+      vm.accessToken = token;
       return $http.get('https://api.pinterest.com/v1/me/boards/?access_token=' + token + '&fields=id%2Curl%2Cname');
 
     };
@@ -34,6 +36,7 @@ angular.module('pinterest')
 
     vm.getPins = function ( board, token ) {
 
+      console.log(board);
       return $http.get('https://api.pinterest.com/v1/boards/' + board + '/pins/?access_token=' + token + '&fields=url%2Cimage');
 
     };
