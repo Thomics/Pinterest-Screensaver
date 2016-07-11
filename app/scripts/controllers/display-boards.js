@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('pinterest')
-  .controller('displayBoardCtrl', [ 'signOnService', "$scope", '$location', '$interval',
-    function( signOnService, $scope, $location, $interval){
+  .controller('displayBoardCtrl', [ 'signOnService', "$scope", '$location', '$interval', '$timeout',
+    function( signOnService, $scope, $location, $interval, $timeout){
 
       $scope.pins = signOnService.pins;
       $scope.paused = true;
@@ -29,8 +29,16 @@ angular.module('pinterest')
         timer = undefined;
       };
 
+      $scope.reset = function() {
+        $scope.stop();
+        $location.url('/select-screen/?state=appconnected&code=' + signOnService.code);
+      };
+
+
 
       $scope.windowScroll = function() {
+
+        $('html, body').animate( { scrollTop: 0 }, 0 );
 
         if( !$scope.paused ) {
 

@@ -7,11 +7,12 @@ angular.module('pinterest')
 
     vm.pins = [];
     vm.seconds = 20;
-
+    vm.code = '';
 
     vm.checkAuthorization = function( ) {
 
       if ( $routeParams.state = 'appconnected' ) {
+        vm.code = $routeParams.code;
         return $routeParams.code;
       }
 

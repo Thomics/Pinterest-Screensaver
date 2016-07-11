@@ -9,8 +9,10 @@ angular.module('pinterest')
       $scope.selectedBoard = '';
       $scope.seconds = 20;
 
+      console.log(signOnService.code);
 
-      if ( $scope.code ) {
+
+      if ( $scope.code || signOnService.code ) {
 
         signOnService.getToken( $scope.code )
           .then( function( response ) {
@@ -38,5 +40,10 @@ angular.module('pinterest')
         });
 
       }
+
+      $scope.$on('$routeChangeSuccess', function() {
+        console.log('route success');
+      });
+
 
     }]);
