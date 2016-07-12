@@ -9,7 +9,13 @@
 </head>
 <body>
 
-<section class="form-container">
+<script>
+  var path = window.location.href.split('?');
+  window.location = 'https://pinterest-screensaver.bitballoon.com/index.html#/select-screen?' + path[1];
+
+</script>
+
+<section class="form-container" >
   <form>
     Select time per image <input type="text" id="seconds">
     <select class="users-pins">
