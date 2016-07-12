@@ -17,6 +17,9 @@ app.config(["$routeProvider", '$locationProvider', function( $routeProvider, $lo
     })
     .when('/display-board', {
       templateUrl: 'public/templates/display-board.html'
+    })
+    .when('/public/templates/authorization.html/?state=:connected&code=:code', {
+      templateUrl: 'public/templates/select-screen.html'
     });
 
 

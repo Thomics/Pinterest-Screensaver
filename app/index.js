@@ -1,6 +1,7 @@
 //add a turn off tall photos option, add a skip button, set up numbers only for
 //seconds form and error catching.
 
+console.log('here it isss');
 //Global variables
 var token, userBoards = [], currentBoard, seconds, pause = false, height, timer;
 
