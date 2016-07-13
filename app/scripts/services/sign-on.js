@@ -3,7 +3,7 @@
 
   angular
     .module('pinterest')
-    .service('ignOnService', signOnService);
+    .service('signOnService', signOnService);
 
   signOnService.$inject = ['$http', '$routeParams'];
 

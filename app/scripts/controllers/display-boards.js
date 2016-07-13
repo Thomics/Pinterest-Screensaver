@@ -3,67 +3,74 @@
 
   angular
     .module('pinterest')
-    .controller('displayBoardCtrl', ['signOnService', "$scope", '$location', '$interval',
-      function (signOnService, $scope, $location, $interval) {
-
-        $scope.pins = signOnService.pins;
-        $scope.paused = true;
-        $scope.counter = 0;
-        var timer;
+    .controller('displayBoardCtrl', displayBoardCtrl);
 
 
-        $scope.incrementCounter = function () {
-          $scope.counter += 1;
-          $scope.windowScroll();
-        };
+  function displayBoardCtrl(signOnService, $location, $interval) {
+
+    var vm = this;
+    vm.pins = signOnService.pins;
+    vm.paused = true;
+    vm.counter = 0;
+    var timer;
 
 
-        $scope.start = function () {
-          $scope.paused = false;
-          $scope.windowScroll();
-          timer = $interval($scope.incrementCounter, (signOnService.seconds * 1000), $scope.pins.length);
-        };
+    vm.incrementCounter = function () {
+      vm.counter += 1;
+      vm.windowScroll();
+    };
 
 
-        $scope.stop = function () {
-          $scope.paused = true;
-          $interval.cancel(timer);
-          timer = undefined;
-        };
-
-        $scope.reset = function () {
-          $scope.stop();
-          $location.url('/select-screen/?state=appconnected&code=' + signOnService.code);
-        };
+    vm.start = function () {
+      vm.paused = false;
+      vm.windowScroll();
+      timer = $interval(vm.incrementCounter, (signOnService.seconds * 1000), vm.pins.length);
+    };
 
 
-        $scope.windowScroll = function () {
+    vm.stop = function () {
+      vm.paused = true;
+      $interval.cancel(timer);
+      timer = undefined;
+    };
 
-          $('html, body').animate({scrollTop: 0}, 0);
+    vm.reset = function () {
+      console.log('reset');
+      vm.stop();
+      $location.url('/select-screen/?state=appconnected&code=' + signOnService.code);
+    };
 
-          if (!$scope.paused) {
 
-            $('html, body').animate({scrollTop: ($scope.pins[$scope.counter].image.original.height) + $(window).height()},
-              ((signOnService.seconds * 1000) / 2));
+    vm.windowScroll = function () {
 
-            $('html, body').bind("scroll mousedown DOMMouseScroll mousewheel keyup", function (event) {
-              if (event.which > 0 || event.type === "mousedown" || event.type === "mousewheel") {
-                $('html, body').stop().unbind('scroll mousedown DOMMouseScroll mousewheel keyup');
-              }
-            });
+      $('html, body').animate({scrollTop: 0}, 0);
 
-            $('html, body').animate({scrollTop: 0}, ((signOnService.seconds * 1000) / 2));
+      if (!vm.paused) {
 
-            //Code from stackoverflow
-            $('html, body').bind("scroll mousedown DOMMouseScroll mousewheel keyup", function (event) {
-              if (event.which > 0 || event.type === "mousedown" || event.type === "mousewheel") {
-                $('html, body').stop().unbind('scroll mousedown DOMMouseScroll mousewheel keyup');
-              }
-            });
+        $('html, body').animate({scrollTop: (vm.pins[vm.counter].image.original.height) + $(window).height()},
+          ((signOnService.seconds * 1000) / 2));
 
+        $('html, body').bind("scroll mousedown DOMMouseScroll mousewheel keyup", function (event) {
+          if (event.which > 0 || event.type === "mousedown" || event.type === "mousewheel") {
+            $('html, body').stop().unbind('scroll mousedown DOMMouseScroll mousewheel keyup');
           }
-        };
+        });
+
+        $('html, body').animate({scrollTop: 0}, ((signOnService.seconds * 1000) / 2));
+
+        //Code from stackoverflow
+        $('html, body').bind("scroll mousedown DOMMouseScroll mousewheel keyup", function (event) {
+          if (event.which > 0 || event.type === "mousedown" || event.type === "mousewheel") {
+            $('html, body').stop().unbind('scroll mousedown DOMMouseScroll mousewheel keyup');
+          }
+        });
+
+      }
+    };
 
 
-      }]);
+  }
+
+  displayBoardCtrl.$inject = ['signOnService', '$location', '$interval'];
+
 })();
