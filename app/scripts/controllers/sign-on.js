@@ -3,60 +3,70 @@
 
   angular
     .module('pinterest')
-    .controller('signOnCtrl', signOnCtrl);
+    .controller('SignOnCtrl', SignOnCtrl);
 
-  signOnCtrl.$inject = ['signOnService', "$scope", '$location'];
+  SignOnCtrl.$inject = ['signOnService', '$scope', '$location'];
 
-  function signOnCtrl(signOnService, $scope, $location) {
+  function SignOnCtrl(signOnService, $scope, $location) {
 
-    $scope.code = signOnService.checkAuthorization();
+    var vm = this;
 
-    $scope.selectedBoard = '';
-    $scope.seconds = 10;
-    $scope.accessToken = signOnService.accessToken;
+    vm.accessToken = signOnService.accessToken;
+    vm.code = signOnService.checkAuthorization();
+    vm.getToken = getToken;
+    vm.getBoard = getBoard;
+    vm.getPins = getPins;
+    vm.seconds = 10;
+    vm.selectedBoard = '';
 
 
-    $scope.getToken = function () {
+    function getToken() {
 
-      signOnService.getToken($scope.code)
+      signOnService.getToken(vm.code)
         .then(function (response) {
-          $scope.accessToken = response.data.access_token;
-          $scope.getBoard();
+          vm.accessToken = response.data.access_token;
+          vm.getBoard();
+        })
+        .catch(function(err) {
+          console.log('error: ' + err);
         });
 
-    };
+    }
 
-    $scope.getBoard = function () {
-      signOnService.getBoard($scope.accessToken)
+
+    function getBoard() {
+
+      signOnService.getBoard(vm.accessToken)
         .then(function (response) {
-          $scope.boardOptions = response.data.data;
+          vm.boardOptions = response.data.data;
+        })
+        .catch(function(err) {
+          console.log('error: ' + err);
         });
-    };
+
+    }
 
 
-    $scope.getPins = function () {
+    function getPins() {
 
-      signOnService.getPins($scope.selectedBoard, $scope.accessToken)
+      signOnService.getPins(vm.selectedBoard, vm.accessToken)
         .then(function (response) {
-
           signOnService.pins = response.data.data;
-          signOnService.seconds = $scope.seconds;
+          signOnService.seconds = vm.seconds;
           $location.url('/display-board');
-
+        })
+        .catch(function(err) {
+          console.log('error: ' + err);
         });
 
-    };
+    }
 
     $scope.$on('$routeChangeSuccess', function () {
 
-      console.log('access t ' + $scope.accessToken);
-
-      if ($scope.accessToken) {
-
-        $scope.getBoard();
-
+      if (vm.accessToken) {
+        vm.getBoard();
       } else {
-        $scope.getToken();
+        vm.getToken();
       }
 
     });

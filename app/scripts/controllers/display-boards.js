@@ -3,45 +3,54 @@
 
   angular
     .module('pinterest')
-    .controller('displayBoardCtrl', displayBoardCtrl);
+    .controller('DisplayBoardCtrl', DisplayBoardCtrl);
 
+  DisplayBoardCtrl.$inject = ['signOnService', '$location', '$interval'];
 
-  function displayBoardCtrl(signOnService, $location, $interval) {
+  function DisplayBoardCtrl(signOnService, $location, $interval) {
 
     var vm = this;
-    vm.pins = signOnService.pins;
-    vm.paused = true;
+
     vm.counter = 0;
+    vm.incrementCounter = incrementCounter;
+    vm.paused = true;
+    vm.pins = signOnService.pins;
+    vm.reset = reset;
+    vm.start = start;
+    vm.stop = stop;
     var timer;
+    vm.windowScroll = windowScroll;
 
 
-    vm.incrementCounter = function () {
+
+    function incrementCounter() {
       vm.counter += 1;
       vm.windowScroll();
-    };
+    }
 
 
-    vm.start = function () {
+    function start() {
       vm.paused = false;
       vm.windowScroll();
       timer = $interval(vm.incrementCounter, (signOnService.seconds * 1000), vm.pins.length);
-    };
+    }
 
 
-    vm.stop = function () {
+    function stop() {
       vm.paused = true;
       $interval.cancel(timer);
       timer = undefined;
-    };
+    }
 
-    vm.reset = function () {
-      console.log('reset');
+
+    function reset() {
       vm.stop();
       $location.url('/select-screen/?state=appconnected&code=' + signOnService.code);
-    };
+    }
 
 
-    vm.windowScroll = function () {
+
+    function windowScroll() {
 
       $('html, body').animate({scrollTop: 0}, 0);
 
@@ -64,13 +73,10 @@
             $('html, body').stop().unbind('scroll mousedown DOMMouseScroll mousewheel keyup');
           }
         });
-
       }
-    };
+    }
 
 
   }
-
-  displayBoardCtrl.$inject = ['signOnService', '$location', '$interval'];
 
 })();
