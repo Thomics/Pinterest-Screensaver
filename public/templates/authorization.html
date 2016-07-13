@@ -10,6 +10,10 @@
 <body>
 
 <script>
+  //A very hacky way to return the information from the Pinterest OAUTH. The OAUTH wouldn't reroute to a url with an octothorp (#)
+  //in it. Without running this program on a server, and using html5Mode, I found the best workaround was to create a page
+  //that doesn't have angular running on it, and have the OAUTH route to this page, then have the page automatically call
+  //the preferred page. I'm so sorry :(
   var path = window.location.href.split('?');
   window.location = 'https://pinterest-screensaver.bitballoon.com/index.html#/select-screen?' + path[1];
 
