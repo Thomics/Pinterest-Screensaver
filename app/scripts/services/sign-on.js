@@ -12,6 +12,7 @@
     var vm = this;
 
     vm.accessToken;
+    vm.boardOptions;
     vm.checkAuthorization = checkAuthorization;
     vm.code = '';
     vm.getBoard = getBoard;
@@ -46,15 +47,12 @@
 
     }
 
-
-
     function getBoard(token) {
 
       vm.accessToken = token;
       return $http.get('https://api.pinterest.com/v1/me/boards/?access_token=' + token + '&fields=id%2Curl%2Cname');
 
     }
-
 
 
     function getPins(board, token) {

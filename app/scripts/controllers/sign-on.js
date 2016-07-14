@@ -12,12 +12,21 @@
     var vm = this;
 
     vm.accessToken = signOnService.accessToken;
-    vm.code = signOnService.checkAuthorization();
+    vm.boardOptions;
+    vm.code;
     vm.getToken = getToken;
     vm.getBoard = getBoard;
     vm.getPins = getPins;
     vm.seconds = 10;
     vm.selectedBoard = '';
+
+
+    activate();
+
+    function activate() {
+      console.log('activatin');
+      vm.code = signOnService.checkAuthorization();
+    }
 
 
     function getToken() {
