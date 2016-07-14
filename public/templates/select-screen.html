@@ -1,4 +1,4 @@
-<section class="form-container"  ng-controller="SignOnCtrl as sign">
+<section class="form-container"  >
   <form ng-submit="sign.getPins()">
     Select time per image <input type="text" id="seconds" ng-model="sign.seconds" >
     <select class="users-pins"  ng-model="sign.selectedBoard" ng-options="board.id as board.name for board in sign.boardOptions">

@@ -26,6 +26,7 @@
         .then(function (response) {
           vm.accessToken = response.data.access_token;
           vm.getBoard();
+          return vm.accessToken;
         })
         .catch(function(err) {
           console.log('error: ' + err);
@@ -39,6 +40,7 @@
       signOnService.getBoard(vm.accessToken)
         .then(function (response) {
           vm.boardOptions = response.data.data;
+          return vm.boardOptions;
         })
         .catch(function(err) {
           console.log('error: ' + err);
@@ -54,6 +56,7 @@
           signOnService.pins = response.data.data;
           signOnService.seconds = vm.seconds;
           $location.url('/display-board');
+          return response;
         })
         .catch(function(err) {
           console.log('error: ' + err);
