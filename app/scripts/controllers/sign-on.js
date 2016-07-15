@@ -12,21 +12,12 @@
     var vm = this;
 
     vm.accessToken = signOnService.accessToken;
-    vm.boardOptions;
-    vm.code;
+    vm.code = signOnService.checkAuthorization();
     vm.getToken = getToken;
     vm.getBoard = getBoard;
     vm.getPins = getPins;
     vm.seconds = 10;
     vm.selectedBoard = '';
-
-
-    activate();
-
-    function activate() {
-      console.log('activatin');
-      vm.code = signOnService.checkAuthorization();
-    }
 
 
     function getToken() {
@@ -35,7 +26,6 @@
         .then(function (response) {
           vm.accessToken = response.data.access_token;
           vm.getBoard();
-          return vm.accessToken;
         })
         .catch(function(err) {
           console.log('error: ' + err);
@@ -49,7 +39,6 @@
       signOnService.getBoard(vm.accessToken)
         .then(function (response) {
           vm.boardOptions = response.data.data;
-          return vm.boardOptions;
         })
         .catch(function(err) {
           console.log('error: ' + err);
@@ -65,7 +54,6 @@
           signOnService.pins = response.data.data;
           signOnService.seconds = vm.seconds;
           $location.url('/display-board');
-          return response;
         })
         .catch(function(err) {
           console.log('error: ' + err);

@@ -12,7 +12,6 @@
     var vm = this;
 
     vm.accessToken;
-    vm.boardOptions;
     vm.checkAuthorization = checkAuthorization;
     vm.code = '';
     vm.getBoard = getBoard;
@@ -20,15 +19,6 @@
     vm.getToken = getToken;
     vm.pins = [];
     vm.seconds = 10;
-
-    var service = {
-      checkAuthorization: checkAuthorization,
-      getToken: getToken,
-      getBoard: getBoard,
-      getPins: getPins
-    };
-
-    return service;
 
 
     function checkAuthorization() {
@@ -47,12 +37,15 @@
 
     }
 
+
+
     function getBoard(token) {
 
       vm.accessToken = token;
       return $http.get('https://api.pinterest.com/v1/me/boards/?access_token=' + token + '&fields=id%2Curl%2Cname');
 
     }
+
 
 
     function getPins(board, token) {
@@ -65,9 +58,6 @@
   }
 
 })();
-
-
-
 
 
 
@@ -98,6 +88,7 @@
 //    var vm = this;
 //
 //    vm.accessToken;
+//    vm.boardOptions;
 //    vm.checkAuthorization = checkAuthorization;
 //    vm.code = '';
 //    vm.getBoard = getBoard;
@@ -105,6 +96,15 @@
 //    vm.getToken = getToken;
 //    vm.pins = [];
 //    vm.seconds = 10;
+//
+//    var service = {
+//      checkAuthorization: checkAuthorization,
+//      getToken: getToken,
+//      getBoard: getBoard,
+//      getPins: getPins
+//    };
+//
+//    return service;
 //
 //
 //    function checkAuthorization() {
@@ -123,15 +123,12 @@
 //
 //    }
 //
-//
-//
 //    function getBoard(token) {
 //
 //      vm.accessToken = token;
 //      return $http.get('https://api.pinterest.com/v1/me/boards/?access_token=' + token + '&fields=id%2Curl%2Cname');
 //
 //    }
-//
 //
 //
 //    function getPins(board, token) {
