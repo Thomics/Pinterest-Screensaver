@@ -8,3 +8,5 @@
  
  You can view the app in it's old state at https://conto-pinterest.herokuapp.com/
  
+ 
+ You can view the MVP in it's current state at http://pinterest-screensaver.bitballoon.com/#/

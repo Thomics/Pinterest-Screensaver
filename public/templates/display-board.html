@@ -6,15 +6,7 @@
     }
   </style>
 
-  <div class="display-options">
-    <p class="reset" ng-click="board.reset()">Reset</p>
-    <p class="pause" ng-click="board.stop()" ng-show="board.paused === false">II</p>
-    <p class="play" ng-click="board.start()" ng-show="board.paused === true">&#9658;</p>
-    <p class="reset" ng-click="board.next()" style="margin-top:50px; color : black;" ng-hide="board.counter > board.pins.length">>></p>
-    <p class="reset" ng-click="board.previous()" style="margin-top:50px; color : black;" ng-hide="board.counter < 1"><<</p>
-    {{board.paused}}
-    <p>{{(board.counter + 1)  + "/" + board.pins.length}}</p>
-  </div>
+  <display-controls></display-controls>
 
   <section class="board-container" ng-style="{height: board.pins[board.counter].image.original.height}">
     <div class="img-container" ><img ng-src="{{board.pins[board.counter].image.original.url}}" /></div>
