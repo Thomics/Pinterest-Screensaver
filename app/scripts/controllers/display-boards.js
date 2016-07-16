@@ -13,8 +13,10 @@
 
     vm.counter = 0;
     vm.incrementCounter = incrementCounter;
+    vm.next = next;
     vm.paused = true;
     vm.pins = signOnService.pins;
+    vm.previous = previous;
     vm.reset = reset;
     vm.start = start;
     vm.stop = stop;
@@ -47,6 +49,19 @@
       $location.url('/select-screen/?state=appconnected&code=' + signOnService.code);
     }
 
+    function previous() {
+      vm.counter -= 1;
+      vm.stop();
+      vm.start();
+      vm.windowScroll();
+    }
+
+    function next() {
+      vm.counter += 1;
+      vm.stop();
+      vm.start();
+      vm.windowScroll();
+    }
 
 
     function windowScroll() {
