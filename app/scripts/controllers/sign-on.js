@@ -17,7 +17,7 @@
     vm.getBoard = getBoard;
     vm.getPins = getPins;
     vm.seconds = 10;
-    vm.selectedBoard = '';
+    vm.selectedBoard = 'comics';
 
 
     function getToken() {
