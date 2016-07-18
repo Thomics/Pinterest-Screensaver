@@ -7,9 +7,10 @@
   </style>
 
   <display-controls></display-controls>
+  <display-time></display-time>
 
   <section class="board-container" ng-style="{height: board.pins[board.counter].image.original.height}">
-    <div class="img-container" ><img ng-src="{{board.pins[board.counter].image.original.url}}" /></div>
+    <div class="img-container" ><img ng-src="{{board.pins[board.counter].image.original.url}}" imageonload /></div>
   </section>
 
 </section>
