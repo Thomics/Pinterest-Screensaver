@@ -1,0 +1,8 @@
+<div class="display-options">
+  <p class="reset" ng-click="displayBoard.reset()">Reset</p>
+  <p class="pause" ng-click="displayBoard.stop()" ng-show="displayBoard.paused === false">II</p>
+  <p class="play"  ng-click="displayBoard.start()" ng-show="displayBoard.paused === true">&#9658;</p>
+  <p class="next" ng-click="displayBoard.next()" ng-hide="displayBoard.counter > displayBoard.pins.length">&#187;</p>
+  <p class="previous" ng-click="displayBoard.previous()" ng-hide="displayBoard.counter < 1">&#171;</p>
+  <p class="board-count">{{(displayBoard.counter + 1)  + "/" + displayBoard.pins.length}}</p>
+</div>

@@ -1,0 +1,8 @@
+<section class="form-container"  >
+  <form ng-submit="retrieveBoard.getPins()">
+    Select time per image in seconds <input type="text" id="seconds" ng-model="retrieveBoard.seconds" >
+    <select class="users-pins"  ng-model="retrieveBoard.selectedBoard" ng-options="board.id as board.name for board in retrieveBoard.boardOptions">
+    </select><br />
+    <input class="user-submit" type="submit" value="Submit">
+  </form>
+</section>

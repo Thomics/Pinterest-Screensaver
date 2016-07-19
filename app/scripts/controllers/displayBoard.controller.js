@@ -3,21 +3,19 @@
 
   angular
     .module('pinterest')
-    .controller('DisplayBoardCtrl', DisplayBoardCtrl);
+    .controller('DisplayBoardController', DisplayBoardController);
 
-  DisplayBoardCtrl.$inject = ['signOnService', '$controller', '$location', '$interval'];
+  DisplayBoardController.$inject = ['dataService', '$location', '$interval'];
 
-  function DisplayBoardCtrl(signOnService, $controller, $location, $interval) {
+  function DisplayBoardController(dataService, $location, $interval) {
 
     var vm = this;
-
-    vm.displayTimeCtrl = $controller('DisplayTimeCtrl');
 
     vm.counter = 0;
     vm.incrementCounter = incrementCounter;
     vm.next = next;
     vm.paused = true;
-    vm.pins = signOnService.pins;
+    vm.pins = dataService.pins;
     vm.previous = previous;
     vm.reset = reset;
     vm.scrollTop = scrollTop;
@@ -44,9 +42,7 @@
     function start() {
       vm.paused = false;
       vm.windowScroll();
-      console.log(vm.displayTimeCtrl.timer);
-      vm.displayTimeCtrl.displayTime();
-      timer = $interval(vm.incrementCounter, (signOnService.seconds * 1000), vm.pins.length);
+      timer = $interval(vm.incrementCounter, (dataService.seconds * 1000), vm.pins.length);
     }
 
     /**
@@ -67,7 +63,7 @@
      */
     function reset() {
       vm.stop();
-      $location.url('/select-screen/?state=appconnected&code=' + signOnService.code);
+      $location.url('/select-screen/?state=appconnected&code=' + dataService.code);
     }
 
     /**
@@ -125,11 +121,11 @@
       if (!vm.paused) {
 
         $('html, body').animate({scrollTop: (vm.pins[vm.counter].image.original.height) + $(window).height()},
-          ((signOnService.seconds * 1000) / 2));
+          ((dataService.seconds * 1000) / 2));
 
         vm.userInteractionChange();
 
-        $('html, body').animate({scrollTop: 0}, ((signOnService.seconds * 1000) / 2));
+        $('html, body').animate({scrollTop: 0}, ((dataService.seconds * 1000) / 2));
 
         vm.userInteractionChange();
 

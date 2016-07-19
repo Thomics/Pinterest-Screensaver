@@ -1,9 +1,9 @@
 'use strict';
 
 angular.module('pinterest')
-  .directive('displayControls', function(){
+  .directive('psDisplayControls', function(){
     return {
-      templateUrl: 'public/templates/display-controls.html',
+      templateUrl: 'public/templates/displayControls.html',
       replace: true,
       restrict: 'EA'
     }

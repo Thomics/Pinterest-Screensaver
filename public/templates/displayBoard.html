@@ -1,0 +1,17 @@
+<section>
+
+  <style>
+    body {
+      background: #f1f5f6;
+    }
+  </style>
+
+  <ps-display-controls></ps-display-controls>
+
+  <section class="board-container" ng-style="{height: displayBoard.pins[displayBoard.counter].image.original.height}">
+    <div class="img-container" >
+      <img ng-src="{{displayBoard.pins[displayBoard.counter].image.original.url}}" />
+    </div>
+  </section>
+
+</section>

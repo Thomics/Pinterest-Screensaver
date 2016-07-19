@@ -3,16 +3,16 @@
 
   angular
     .module('pinterest')
-    .controller('SignOnCtrl', SignOnCtrl);
+    .controller('RetrieveBoardsController', RetrieveBoardsController);
 
-  SignOnCtrl.$inject = ['signOnService', '$scope', '$location'];
+  RetrieveBoardsController.$inject = ['dataService', '$scope', '$location'];
 
-  function SignOnCtrl(signOnService, $scope, $location) {
+  function RetrieveBoardsController(dataService, $scope, $location) {
 
     var vm = this;
 
-    vm.accessToken = signOnService.accessToken;
-    vm.code = signOnService.checkAuthorization();
+    vm.accessToken = dataService.accessToken;
+    vm.code = dataService.checkAuthorization();
     vm.getToken = getToken;
     vm.getBoard = getBoard;
     vm.getPins = getPins;
@@ -22,7 +22,7 @@
 
     function getToken() {
 
-      signOnService.getToken(vm.code)
+      dataService.getToken(vm.code)
         .then(function (response) {
           vm.accessToken = response.data.access_token;
           vm.getBoard();
@@ -36,7 +36,7 @@
 
     function getBoard() {
 
-      signOnService.getBoard(vm.accessToken)
+      dataService.getBoard(vm.accessToken)
         .then(function (response) {
           vm.boardOptions = response.data.data;
         })
@@ -49,10 +49,10 @@
 
     function getPins() {
 
-      signOnService.getPins(vm.selectedBoard, vm.accessToken)
+      dataService.getPins(vm.selectedBoard, vm.accessToken)
         .then(function (response) {
-          signOnService.pins = response.data.data;//wth?
-          signOnService.seconds = vm.seconds;//wth?
+          dataService.pins = response.data.data;//wth?
+          dataService.seconds = vm.seconds;//wth?
           $location.url('/display-board');
         })
         .catch(function(err) {
