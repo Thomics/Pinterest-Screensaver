@@ -51,8 +51,8 @@
 
       signOnService.getPins(vm.selectedBoard, vm.accessToken)
         .then(function (response) {
-          signOnService.pins = response.data.data;
-          signOnService.seconds = vm.seconds;
+          signOnService.pins = response.data.data;//wth?
+          signOnService.seconds = vm.seconds;//wth?
           $location.url('/display-board');
         })
         .catch(function(err) {

@@ -5,11 +5,13 @@
     .module('pinterest')
     .controller('DisplayBoardCtrl', DisplayBoardCtrl);
 
-  DisplayBoardCtrl.$inject = ['signOnService', '$location', '$interval'];
+  DisplayBoardCtrl.$inject = ['signOnService', '$controller', '$location', '$interval'];
 
-  function DisplayBoardCtrl(signOnService, $location, $interval) {
+  function DisplayBoardCtrl(signOnService, $controller, $location, $interval) {
 
     var vm = this;
+
+    vm.displayTimeCtrl = $controller('DisplayTimeCtrl');
 
     vm.counter = 0;
     vm.incrementCounter = incrementCounter;
@@ -42,6 +44,8 @@
     function start() {
       vm.paused = false;
       vm.windowScroll();
+      console.log(vm.displayTimeCtrl.timer);
+      vm.displayTimeCtrl.displayTime();
       timer = $interval(vm.incrementCounter, (signOnService.seconds * 1000), vm.pins.length);
     }
 

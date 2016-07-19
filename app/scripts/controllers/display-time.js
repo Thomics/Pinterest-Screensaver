@@ -12,25 +12,27 @@
     var vm = this;
 
     vm.displayTime = displayTime;
-    vm.seconds = signOnService.seconds || 10;
+    vm.seconds = signOnService.seconds;
     vm.timeInterval = timeInterval;
-    var timer;
+    vm.timer = Date.now();
 
-    console.log(vm.seconds);
+    //activate();
+    //
+    //
+    //function activate() {
+    //  displayTime();
+    //}
 
     function displayTime() {
       console.log('really');
+      console.log(vm.seconds + "seconds");
       $interval(vm.timeInterval, 1000, vm.seconds);
     }
 
     function timeInterval() {
-      timer = Date.now();
-      console.log(timer);
+      vm.timer = Date.now();
     }
 
   }
-
-
-
 
 })();
