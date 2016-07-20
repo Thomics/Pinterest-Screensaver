@@ -16,7 +16,7 @@
     vm.getToken = getToken;
     vm.getBoard = getBoard;
     vm.getPins = getPins;
-    vm.seconds = 10;
+    vm.seconds = 30;
     vm.selectedBoard = '';
 
 

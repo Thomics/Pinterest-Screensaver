@@ -11,6 +11,7 @@
 
     var vm = this;
 
+    vm.allDisplayed = allDisplayed;
     vm.counter = 0;
     vm.incrementCounter = incrementCounter;
     vm.next = next;
@@ -25,6 +26,18 @@
     vm.userInteractionChange = userInteractionChange;
     vm.windowScroll = windowScroll;
 
+    ////////////////////
+
+    /**
+     * @namespace allDisplayed
+     * @description verifies if all of the boards have been displayed and resets the view if they have.
+     */
+    function allDisplayed() {
+      if  (vm.counter == vm.pins.length) {
+        vm.reset();
+      }
+    }
+
 
     /**
      * @namespace incrementCounter
@@ -32,7 +45,46 @@
      */
     function incrementCounter() {
       vm.counter += 1;
+      vm.allDisplayed();
       vm.windowScroll();
+    }
+
+    /**
+     * @namespace next
+     * @description skips the current pin.
+     */
+    function next() {
+      vm.counter += 1;
+      vm.stop();
+      vm.scrollTop();
+    }
+
+    /**
+     * @namespace previous
+     * @description returns to the previous pin.
+     */
+    function previous() {
+      vm.counter -= 1;
+      vm.stop();
+      vm.scrollTop();
+    }
+
+    /**
+     * @namespace reset
+     * @description resets the current view back to the select-screen where the user chooses a Pinterest board to have
+     * for a slide show.
+     */
+    function reset() {
+      vm.stop();
+      $location.url('/select-screen/?state=appconnected&code=' + dataService.code);
+    }
+
+    /**
+     * @namespace scrollTop
+     * @description scrolls the browser window to the top point.
+     */
+    function scrollTop() {
+      $('html, body').animate({scrollTop: 0}, 0);
     }
 
     /**
@@ -55,45 +107,6 @@
       timer = undefined;
     }
 
-
-    /**
-     * @namespace reset
-     * @description resets the current view back to the select-screen where the user chooses a Pinterest board to have
-     * for a slide show.
-     */
-    function reset() {
-      vm.stop();
-      $location.url('/select-screen/?state=appconnected&code=' + dataService.code);
-    }
-
-    /**
-     * @namespace previous
-     * @description returns to the previous pin.
-     */
-    function previous() {
-      vm.counter -= 1;
-      vm.stop();
-      vm.scrollTop();
-    }
-
-    /**
-     * @namespace next
-     * @description skips the current pin.
-     */
-    function next() {
-      vm.counter += 1;
-      vm.stop();
-      vm.scrollTop();
-    }
-
-    /**
-     * @namespace scrollTop
-     * @description scrolls the browser window to the top point.
-     */
-    function scrollTop() {
-      $('html, body').animate({scrollTop: 0}, 0);
-    }
-
     /**
      * @namespace userInteractionChange
      * @description During the slide show, if the user scrolls, clicks, or generally interacts with the browser, the app stops the
@@ -107,7 +120,6 @@
         }
       });
     }
-
 
     /**
      * @namespace windowScroll
