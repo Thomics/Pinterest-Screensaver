@@ -22,5 +22,4 @@ angular.module('pinterest', ['ngRoute'])
       controller: 'DisplayBoardController',
       controllerAs: 'displayBoard'
     });
-
 }]);

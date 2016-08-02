@@ -55,6 +55,7 @@
      */
     function next() {
       vm.counter += 1;
+      vm.allDisplayed();
       vm.stop();
       vm.scrollTop();
     }
