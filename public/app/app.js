@@ -14,6 +14,11 @@ angular.module('pinterest', ['ngRoute'])
       controller: 'RetrieveBoardsController',
       controllerAs: 'retrieveBoard'
     })
+    .when('/#%2Fselect-screen%3Fstate=appconnected&code=:code', {
+      templateUrl: 'public/templates/retrieveBoards.html',
+      controller: 'RetrieveBoardsController',
+      controllerAs: 'retrieveBoard'
+    })
     .when('/select-screen', {
       templateUrl: 'public/templates/retrieveBoards.html',
       controller: 'RetrieveBoardsController',

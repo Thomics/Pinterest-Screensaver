@@ -61,7 +61,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "0b751d1d8716fe7ed31e"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "b7bb8be0434f1aa671bb"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -751,6 +751,10 @@ __WEBPACK_IMPORTED_MODULE_0_angular___default.a.module('pinterest', ['ngRoute'])
   $routeProvider.when('/', {
     templateUrl: 'public/templates/userSignOn.html'
   }).when('/select-screen/?state=:connected&code=:code', {
+    templateUrl: 'public/templates/retrieveBoards.html',
+    controller: 'RetrieveBoardsController',
+    controllerAs: 'retrieveBoard'
+  }).when('/#%2Fselect-screen%3Fstate=appconnected&code=:code', {
     templateUrl: 'public/templates/retrieveBoards.html',
     controller: 'RetrieveBoardsController',
     controllerAs: 'retrieveBoard'

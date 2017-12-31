@@ -1,5 +1,5 @@
 (function() {
-  'use strict';
+  import { clientId, clientSecret} from '../../config.js';
 
   angular
     .module('pinterest')
@@ -33,24 +33,22 @@
 
     function getToken(code) {
 
-      return $http.post('https://api.pinterest.com/v1/oauth/token?grant_type=authorization_code&client_id=4843083155244066954&client_secret=c3070903c5fbe1daa699846708c06d0f4f5713351b97d2a5f357b9bc3e541a16&code=' + code);
+      return $http.post(`https://api.pinterest.com/v1/oauth/token?grant_type=authorization_code&client_id=${clientId}&client_secret=${clientSecret}&code=${code}`);
 
     }
-
 
 
     function getBoard(token) {
 
       vm.accessToken = token;
-      return $http.get('https://api.pinterest.com/v1/me/boards/?access_token=' + token + '&fields=id%2Curl%2Cname');
+      return $http.get(`https://api.pinterest.com/v1/me/boards/?access_token=${token}&fields=id%2Curl%2Cname`);
 
     }
 
 
-
     function getPins(board, token) {
 
-      return $http.get('https://api.pinterest.com/v1/boards/' + board + '/pins/?access_token=' + token + '&fields=url%2Cimage');
+      return $http.get(`https://api.pinterest.com/v1/boards/${board}/pins/?access_token=${token}&fields=url%2Cimage`);
 
     }
 
