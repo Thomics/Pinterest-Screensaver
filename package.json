@@ -1,0 +1,22 @@
+{
+  "name": "Pinterest-Screensaver",
+  "version": "1.0.0",
+  "description": "Pinterest Screensaver In Browser Application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Thomics/Pinterest-Screensaver.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Thomics/Pinterest-Screensaver/issues"
+  },
+  "homepage": "https://github.com/Thomics/Pinterest-Screensaver#readme",
+  "dependencies": {
+  }
+}
