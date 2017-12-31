@@ -1,4 +1,6 @@
-'use strict';
+import angular from 'angular';
+import ngRoute from 'angular-route';
+import jQuery from 'jquery';
 
 angular.module('pinterest', ['ngRoute'])
   .config(["$routeProvider", function($routeProvider) {
