@@ -61,7 +61,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "b7bb8be0434f1aa671bb"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "9cf2fd53e1cd4c2a876b"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -742,8 +742,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angular_route___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_angular_route__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_jquery__ = __webpack_require__(/*! jquery */ 5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_jquery___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_jquery__);
+// VENDOR
 
 
+
+
+// CONTROLLERS
+//import '../app/scripts/controllers/displayBoard.controller.js';
+//import '../app/scripts/controllers/retrieveBoards.controller.js';
 
 
 __WEBPACK_IMPORTED_MODULE_0_angular___default.a.module('pinterest', ['ngRoute']).config(["$routeProvider", function ($routeProvider) {

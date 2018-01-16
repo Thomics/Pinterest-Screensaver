@@ -77,7 +77,7 @@
      */
     function reset() {
       vm.stop();
-      $location.url('/select-screen/?state=appconnected&code=' + dataService.code);
+      $location.url('/select-screen?state=appconnected&code=' + dataService.code);
     }
 
     /**
@@ -149,3 +149,5 @@
   }
 
 })();
+
+export default {DisplayBoardController};

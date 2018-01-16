@@ -1,5 +1,6 @@
 (function() {
-  import { clientId, clientSecret} from '../../config.js';
+
+  import {clientId, clientSecret} from '../../config.js';
 
   angular
     .module('pinterest')
@@ -55,4 +56,8 @@
 
   }
 
-})();
+}
+
+)();
+
+//export default {signOnService};
