@@ -1,25 +1,32 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
+import DisplayPin from '../components/DisplayPin';
 import boards from '../mock/boards';
+
 
 class SelectBoard extends Component {
 
 	displayImages(options) {
-		console.log(JSON.stringify(options));
 		return options.map((key, num) => {
 			return(
-				<div key={num}>
-					<img src={key.url} />
-				</div>
+				<DisplayPin image={key.url} key={num} />
 			)
 		});
 	}
 
+	constructor(props) {
+		super(props);
+
+	}
+
 	render() {
-		let images = this.displayImages(boards.data)
+		// let image = boards.data[0].url;
+		let images = this.displayImages(boards.data);
+
 		return (
-			<section>
+			<Fragment>
+				{/* <DisplayPin image={image} /> */}
 				{images}
-			</section>
+			</Fragment>
 		);
 	}
 }
